@@ -49,3 +49,12 @@ for (let i = 0; i < close.length; i++) {
     div.style.display = "none";
   };
 }
+
+// Add checkmark
+
+listEl.addEventListener("click", function (event) {
+  if (event.target.tagName === "li") {
+    event.target.classList.toggle("checked");
+  }
+}, false);
+
