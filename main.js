@@ -22,39 +22,33 @@ function handleClick(event) {
   if (inputValue) {
     const liEl = document.createElement("li");
     liEl.textContent = inputValue;
+
+    // Create close button
+    const span = document.createElement("span");
+    const text = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(text);
+    liEl.appendChild(span);
+
+    // Add close button click event
+    span.onclick = function () {
+      liEl.style.display = "none";
+    };
+
     listEl.appendChild(liEl);
   }
 
   inputEl.value = "";
 }
 
-// Delete task element
-
-const delEl = document.getElementsByTagName("");
-
-for (let i = 0; i < checkEl.length; i++) {
-  const span = document.createElement("span");
-  const text = document.createTextNode("\u00D7");
-
-  span.className = "close";
-  span.appendChild(text);
-  delEl[i].appendChild(span);
-}
-
-const close = document.getElementsByClassName("close");
-
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-    const div = this.parentElement;
-    div.style.display = "none";
-  };
-}
-
 // Add checkmark
 
-listEl.addEventListener("click", function (event) {
-  if (event.target.tagName === "li") {
-    event.target.classList.toggle("checked");
-  }
-}, false);
-
+listEl.addEventListener(
+  "click",
+  function (event) {
+    if (event.target.tagName === "LI") {
+      event.target.classList.toggle("checked");
+    }
+  },
+  false
+);
